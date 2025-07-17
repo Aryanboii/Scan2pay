@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-800;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-white bg-opacity-20 backdrop-blur-lg;
+  }
+  
+  .gradient-border {
+    position: relative;
+    border-radius: 0.75rem;
+  }
+  
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: 0.875rem;
+    background: linear-gradient(45deg, #4f46e5, #7c3aed, #2563eb);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
